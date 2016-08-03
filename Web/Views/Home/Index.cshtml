@@ -1,0 +1,52 @@
+﻿<div class="modal fade" id="newUser" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Enter Your Name</h4>
+            </div>
+            <div class="modal-body">
+                <input type="text" class="form-control top-margin" id="username" placeholder="Type Your Chat Handle Here">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" onclick="chat.newUser()" data-dismiss="modal">Enter Chat</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row show-grid">
+        <div class="col-md-10">
+            <h2>Welcome to Chat <label id="user"></label>!</h2>
+        </div>
+        <div class="col-md-2">
+            <div class="logout pull-right" onclick="chat.logout()">Logout</div>
+        </div>
+    </div>
+
+    <div class="row big-row">
+        <div class="col-md-9 border">
+            <div>
+                <label for="chatMessages" class="text-muted">Chat Messages</label>
+                <div id="chatMessages" class="form-control text-muted">
+                </div>
+            </div>
+            <div>
+                <input type="text" class="form-control top-margin" id="chatMessage" placeholder="Type Chat Message Here..." onkeydown="chat.handleKeyPress(event)">
+            </div>
+        </div>
+        <div class="col-md-3 border">
+            <label for="users" class="text-muted">Users</label>
+            <div id="users" class="form-control text-muted">
+                <div class="user"></div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts {
+    <script src="~/Scripts/Framework/jquery.signalR-2.2.1.js"></script>
+    <script src="~/Scripts/utils.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script src="~/Scripts/letsChat.js"></script>
+    <script src="~/Scripts/startup.js"></script>
+}
